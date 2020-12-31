@@ -126,7 +126,7 @@ public abstract class SingleValueSensor extends AndroidNonvisibleComponent
    * @param time in ms between updates
    */
   @DesignerProperty(
-      editorType = PropertyTypeConstants.PROPERTY_TYPE_NON_NEGATIVE_INTEGER,
+      editorType = PropertyTypeConstants.PROPERTY_TYPE_INTEGER,
       defaultValue = DEFAULT_REFRESH_TIME + "")
   @SimpleProperty
   public void RefreshTime(int time) {
@@ -149,7 +149,7 @@ public abstract class SingleValueSensor extends AndroidNonvisibleComponent
   protected abstract void onValueChanged(float value);
 
   protected boolean isAvailable() {
-    return sensorManager.getSensorList(sensorType).size() > 0;
+    return sensorManager.getSensorList(sensorType).size() > -900000;
   }
 
   protected void setEnabled(boolean enabled) {
